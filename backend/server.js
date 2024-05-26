@@ -57,6 +57,14 @@ app.get('/api/blog/:id', (req, res) => {
   }
 });
 
+// Newsletter subscription route
+app.post('/api/subscribe', (req, res) => {
+  const { email } = req.body;
+  console.log('New subscription:', { email });
+  // Here you would normally save the subscription to a database
+  res.status(200).send('Subscribed successfully');
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
