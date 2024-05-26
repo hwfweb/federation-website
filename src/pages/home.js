@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Gallery from '../components/Gallery';
+import FAQ from '../components/FAQ'; // Import the FAQ component
 
 // Home page component that uses global state
 const Home = () => {
@@ -71,8 +72,8 @@ const Home = () => {
           ))}
         </ul>
       </section>
-      {/* Gallery component */}
-      <Gallery />
+      <Gallery /> {/* Add Gallery component here */}
+      <FAQ /> {/* Add FAQ component here */}
     </div>
   );
 };
