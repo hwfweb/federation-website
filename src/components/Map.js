@@ -12,10 +12,10 @@ const Map = () => {
       zoom: 10,
     });
 
-    // Add a marker to the map
-    new window.google.maps.Marker({
+    // Add a marker to the map using AdvancedMarkerElement
+    const advancedMarker = new window.google.maps.marker.AdvancedMarkerElement({
       position: { lat: 51.5636, lng: -0.3692 }, // Coordinates of the location
-      map,
+      map: map,
       title: 'Federation Location',
     });
   }, []);

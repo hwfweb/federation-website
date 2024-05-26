@@ -7,15 +7,22 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const NewsCarousel = () => {
   const [news, setNews] = useState([]);
 
-  // Fetch news articles
   useEffect(() => {
+    console.log('Fetching news from API');
     fetch('http://localhost:5000/api/news')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
-        console.log('Fetched news data:', data); // Log fetched data to verify
+        console.log('Fetched news data:', data);
         setNews(data.slice(0, 5)); // Fetch only the top 5 news articles
       })
-      .catch(error => console.error('Error fetching news:', error));
+      .catch(error => {
+        console.error('Error fetching news:', error);
+      });
   }, []);
 
   return (

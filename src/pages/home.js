@@ -7,25 +7,21 @@ import NewsCarousel from '../components/NewsCarousel'; // Import the NewsCarouse
 
 // Home page component
 const Home = () => {
-  const [news, setNews] = useState([]);
   const [events, setEvents] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    // Fetch news articles (replace with real API endpoint)
-    fetch('/api/news')
+    // Fetch events
+    fetch('http://localhost:5000/api/events')
       .then(response => response.json())
-      .then(data => setNews(data));
+      .then(data => setEvents(data))
+      .catch(error => console.error('Error fetching events:', error));
 
-    // Fetch events (replace with real API endpoint)
-    fetch('/api/events')
+    // Fetch testimonials
+    fetch('http://localhost:5000/api/testimonials')
       .then(response => response.json())
-      .then(data => setEvents(data));
-
-    // Fetch testimonials (replace with real API endpoint)
-    fetch('/api/testimonials')
-      .then(response => response.json())
-      .then(data => setTestimonials(data));
+      .then(data => setTestimonials(data))
+      .catch(error => console.error('Error fetching testimonials:', error));
   }, []);
 
   return (
@@ -38,20 +34,9 @@ const Home = () => {
           Learn More
         </a>
       </div>
-      <NewsCarousel /> {/* Add NewsCarousel component here */}
+      <NewsCarousel /> {/* Use NewsCarousel without passing news prop */}
       {/* Latest News section */}
-      <section className="my-16">
-        <h2 className="text-4xl font-bold mb-4">Latest News</h2>
-        <ul>
-          {news.map(article => (
-            <li key={article.id} className="mb-4">
-              <h3 className="text-2xl">{article.title}</h3>
-              <p>{article.summary}</p>
-              <a href={`/news/${article.id}`} className="text-blue-600 hover:underline">Read more</a>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* Remove Latest News section if it's covered by the NewsCarousel */}
       {/* Upcoming Events section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold mb-4">Upcoming Events</h2>
