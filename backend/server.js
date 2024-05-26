@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
 const authRoutes = require('./routes/auth'); // Import auth routes
@@ -26,7 +26,7 @@ app.post('/api/contact', (req, res) => {
   res.status(200).send('Message received');
 });
 
-// Blog posts data
+// Sample blog posts data
 const blogPosts = [
   { id: 1, title: 'First Blog Post', excerpt: 'This is the first blog post.', content: 'Full content of the first blog post.' },
   { id: 2, title: 'Second Blog Post', excerpt: 'This is the second blog post.', content: 'Full content of the second blog post.' },
@@ -61,8 +61,41 @@ app.get('/api/blog/:id', (req, res) => {
 app.post('/api/subscribe', (req, res) => {
   const { email } = req.body;
   console.log('New subscription:', { email });
-  // Here you would normally save the subscription to a database
   res.status(200).send('Subscribed successfully');
+});
+
+// Sample news data with placeholder images
+const news = [
+  { id: 1, title: 'Federation Achievements', summary: 'Our federation has achieved great milestones...', image: 'https://via.placeholder.com/600x400' },
+  { id: 2, title: 'Upcoming Events', summary: 'Join us for our upcoming events...', image: 'https://via.placeholder.com/600x400' },
+  { id: 3, title: 'New School Programs', summary: 'We are excited to introduce new programs...', image: 'https://via.placeholder.com/600x400' },
+];
+
+// News route to get all news
+app.get('/api/news', (req, res) => {
+  res.json(news);
+});
+
+// Sample events data
+const events = [
+  { id: 1, name: 'Science Fair', details: 'Join us for the annual science fair...' },
+  { id: 2, name: 'Sports Day', details: 'Come and cheer on our students during sports day...' },
+];
+
+// Events route to get all events
+app.get('/api/events', (req, res) => {
+  res.json(events);
+});
+
+// Sample testimonials data
+const testimonials = [
+  { id: 1, message: 'This federation has changed my life!', author: 'John Doe' },
+  { id: 2, message: 'Amazing teachers and staff.', author: 'Jane Smith' },
+];
+
+// Testimonials route to get all testimonials
+app.get('/api/testimonials', (req, res) => {
+  res.json(testimonials);
 });
 
 // Start the server
