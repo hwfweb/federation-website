@@ -26,14 +26,15 @@ app.post('/api/contact', (req, res) => {
   res.status(200).send('Message received');
 });
 
+// Blog posts data
+const blogPosts = [
+  { id: 1, title: 'First Blog Post', excerpt: 'This is the first blog post.', content: 'Full content of the first blog post.' },
+  { id: 2, title: 'Second Blog Post', excerpt: 'This is the second blog post.', content: 'Full content of the second blog post.' },
+  // Add more blog posts as needed
+];
+
 // Blog posts route with search functionality
 app.get('/api/blog', (req, res) => {
-  const blogPosts = [
-    { id: 1, title: 'First Blog Post', excerpt: 'This is the first blog post.' },
-    { id: 2, title: 'Second Blog Post', excerpt: 'This is the second blog post.' },
-    // Add more blog posts as needed
-  ];
-
   const { search } = req.query;
   if (search) {
     const filteredPosts = blogPosts.filter(post =>
@@ -42,6 +43,17 @@ app.get('/api/blog', (req, res) => {
     res.json(filteredPosts);
   } else {
     res.json(blogPosts);
+  }
+});
+
+// Route to get individual blog post by ID
+app.get('/api/blog/:id', (req, res) => {
+  const { id } = req.params;
+  const post = blogPosts.find(post => post.id === parseInt(id, 10));
+  if (post) {
+    res.json(post);
+  } else {
+    res.status(404).send('Blog post not found');
   }
 });
 
