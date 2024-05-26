@@ -3,7 +3,7 @@ import React from 'react';
 
 // Footer component with styling
 const Footer = () => (
-  <footer className="bg-gray-800 text-white p-4"> {/* Footer with dark background and white text */}
+  <footer className="bg-gray-800 text-white p-4 mt-8"> {/* Footer with dark background and white text */}
     <div className="container mx-auto text-center"> {/* Container centered horizontally */}
       <p>&copy; 2024 Federation Website. All rights reserved.</p> {/* Footer text */}
       <nav className="space-x-4 mt-2"> {/* Navigation links with spacing */}
