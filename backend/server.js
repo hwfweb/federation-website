@@ -26,14 +26,23 @@ app.post('/api/contact', (req, res) => {
   res.status(200).send('Message received');
 });
 
-// Blog posts route
+// Blog posts route with search functionality
 app.get('/api/blog', (req, res) => {
   const blogPosts = [
     { id: 1, title: 'First Blog Post', excerpt: 'This is the first blog post.' },
     { id: 2, title: 'Second Blog Post', excerpt: 'This is the second blog post.' },
     // Add more blog posts as needed
   ];
-  res.json(blogPosts);
+
+  const { search } = req.query;
+  if (search) {
+    const filteredPosts = blogPosts.filter(post =>
+      post.title.toLowerCase().includes(search.toLowerCase())
+    );
+    res.json(filteredPosts);
+  } else {
+    res.json(blogPosts);
+  }
 });
 
 // Start the server
