@@ -33,8 +33,8 @@ const Home = () => {
         <h1 className="text-5xl font-bold mb-4">Welcome to the Federation Website</h1>
         <p className="text-lg mb-8">Discover the latest updates and information about our federation.</p>
         {state.user && <p>Welcome back, {state.user.name}!</p>}
-        <a href="/about" className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:scale-105"> {/* Example button usage in Home.js */}
-        Learn More
+        <a href="/about" className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+          Learn More
         </a>
       </div>
       <section className="my-16">
@@ -71,7 +71,8 @@ const Home = () => {
           ))}
         </ul>
       </section>
-      <Gallery /> {/* Add Gallery component here */}
+      {/* Gallery component */}
+      <Gallery />
     </div>
   );
 };

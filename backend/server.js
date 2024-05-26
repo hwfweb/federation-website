@@ -19,6 +19,14 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
+// Contact form submission route
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  // Here you would normally handle the form data, e.g., save it to a database or send an email
+  console.log('Contact form submitted:', { name, email, message });
+  res.status(200).send('Message received');
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

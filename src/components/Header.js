@@ -12,6 +12,7 @@ const Header = () => (
         <h1 className="text-3xl font-bold">Federation Website</h1>
       </div>
       <div className="hidden md:block">
+        {/* Desktop navigation links */}
         <nav className="space-x-4">
           <Link to="/" className="hover:underline">Home</Link>
           <Link to="/about" className="hover:underline">About</Link>
@@ -20,6 +21,7 @@ const Header = () => (
         </nav>
       </div>
       <div className="md:hidden">
+        {/* Mobile navigation drawer */}
         <NavigationDrawer />
       </div>
     </div>
