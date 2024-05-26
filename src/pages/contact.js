@@ -1,5 +1,6 @@
 // src/pages/Contact.js
 import React, { useState } from 'react';
+import Map from '../components/Map'; // Import the Map component
 
 // Contact page component
 const Contact = () => {
@@ -9,6 +10,7 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [message, setMessage] = useState('');
 
   // Function to handle input changes
   const handleChange = (e) => {
@@ -30,20 +32,21 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert('Message sent successfully');
+        setMessage('Message sent successfully');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        alert('Failed to send message');
+        setMessage('Failed to send message');
       }
     } catch (error) {
-      alert('Error: ' + error.message);
+      setMessage('Error: ' + error.message);
     }
   };
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl mb-4">Contact Us</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <Map /> {/* Add Map component here */}
+      <form onSubmit={handleSubmit} className="space-y-4 mt-4">
         <div>
           <label htmlFor="name" className="block mb-2">Name</label>
           <input
@@ -80,6 +83,7 @@ const Contact = () => {
           Send Message
         </button>
       </form>
+      {message && <p className="mt-4">{message}</p>}
     </div>
   );
 };

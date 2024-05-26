@@ -1,9 +1,9 @@
 // src/pages/Home.js
-import React, { useEffect, useState, useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, { useEffect, useState } from 'react';
 import Gallery from '../components/Gallery';
 import FAQ from '../components/FAQ';
 import SubscriptionForm from '../components/SubscriptionForm';
+import NewsCarousel from '../components/NewsCarousel'; // Import the NewsCarousel component
 
 // Home page component
 const Home = () => {
@@ -38,6 +38,7 @@ const Home = () => {
           Learn More
         </a>
       </div>
+      <NewsCarousel /> {/* Add NewsCarousel component here */}
       {/* Latest News section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold mb-4">Latest News</h2>
