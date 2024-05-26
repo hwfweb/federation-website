@@ -1,12 +1,17 @@
 // src/components/Footer.js
-import React from 'react'; // Import React library
-import styles from "./index.css"
+import React from 'react';
 
-// Footer component that contains footer content
+// Footer component with styling
 const Footer = () => (
-  <footer className="bg-gray-800 text-white p-4 mt-8"> {/* Footer with gray background and white text */}
+  <footer className="bg-gray-800 text-white p-4"> {/* Footer with dark background and white text */}
     <div className="container mx-auto text-center"> {/* Container centered horizontally */}
-      <p>&copy; 2024 Federation Website. All rights reserved.</p> {/* Copyright information */}
+      <p>&copy; 2024 Federation Website. All rights reserved.</p> {/* Footer text */}
+      <nav className="space-x-4 mt-2"> {/* Navigation links with spacing */}
+        <a href="/" className="hover:underline">Home</a> {/* Added hover effect */}
+        <a href="/about" className="hover:underline">About</a>
+        <a href="/news" className="hover:underline">News</a>
+        <a href="/contact" className="hover:underline">Contact</a>
+      </nav>
     </div>
   </footer>
 );

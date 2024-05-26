@@ -1,14 +1,15 @@
 // src/components/Layout.js
 import React from 'react';
-import Header from './Header'; // Correctly import the Header component
-import Footer from './Footer'; // Assuming you have a Footer component
-import styles from "./index.css"
+import Header from './Header';
+import Footer from './Footer';
 
-// Layout component that wraps around the page content
+// Layout component wrapping the content with Header and Footer
 const Layout = ({ children }) => (
-  <div className="flex flex-col min-h-screen">
+  <div className="flex flex-col min-h-screen"> {/* Flexbox for vertical layout with minimum screen height */}
     <Header /> {/* Include the Header component */}
-    <main className="flex-grow">{children}</main> {/* Main content area that grows to fill available space */}
+    <main className="flex-grow container mx-auto p-4"> {/* Main content area that grows to fill available space */}
+      {children} {/* Render child components */}
+    </main>
     <Footer /> {/* Include the Footer component */}
   </div>
 );
