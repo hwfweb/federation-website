@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth'); // Import auth routes
 
 // Connect to MongoDB (replace with your MongoDB URI)
 mongoose.connect('mongodb://localhost:27017/federation', { useNewUrlParser: true, useUnifiedTopology: true });
