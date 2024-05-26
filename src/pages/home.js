@@ -3,11 +3,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Gallery from '../components/Gallery';
 import FAQ from '../components/FAQ';
-import SubscriptionForm from '../components/SubscriptionForm'; // Import the SubscriptionForm component
+import SubscriptionForm from '../components/SubscriptionForm';
 
-// Home page component that uses global state
+// Home page component
 const Home = () => {
-  const { state } = useContext(AppContext);
   const [news, setNews] = useState([]);
   const [events, setEvents] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
@@ -31,14 +30,15 @@ const Home = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="text-center py-16">
+      {/* Hero section with background color and text alignment */}
+      <div className="hero bg-blue-600 text-white text-center py-16">
         <h1 className="text-5xl font-bold mb-4">Welcome to the Federation Website</h1>
         <p className="text-lg mb-8">Discover the latest updates and information about our federation.</p>
-        {state.user && <p>Welcome back, {state.user.name}!</p>}
-        <a href="/about" className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+        <a href="/about" className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-100">
           Learn More
         </a>
       </div>
+      {/* Latest News section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold mb-4">Latest News</h2>
         <ul>
@@ -51,6 +51,7 @@ const Home = () => {
           ))}
         </ul>
       </section>
+      {/* Upcoming Events section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold mb-4">Upcoming Events</h2>
         <ul>
@@ -62,6 +63,7 @@ const Home = () => {
           ))}
         </ul>
       </section>
+      {/* Testimonials section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
         <ul>
