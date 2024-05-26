@@ -22,9 +22,18 @@ app.get('/', (req, res) => {
 // Contact form submission route
 app.post('/api/contact', (req, res) => {
   const { name, email, message } = req.body;
-  // Here you would normally handle the form data, e.g., save it to a database or send an email
   console.log('Contact form submitted:', { name, email, message });
   res.status(200).send('Message received');
+});
+
+// Blog posts route
+app.get('/api/blog', (req, res) => {
+  const blogPosts = [
+    { id: 1, title: 'First Blog Post', excerpt: 'This is the first blog post.' },
+    { id: 2, title: 'Second Blog Post', excerpt: 'This is the second blog post.' },
+    // Add more blog posts as needed
+  ];
+  res.json(blogPosts);
 });
 
 // Start the server

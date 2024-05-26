@@ -17,6 +17,7 @@ const Header = () => (
           <Link to="/" className="hover:underline">Home</Link>
           <Link to="/about" className="hover:underline">About</Link>
           <Link to="/news" className="hover:underline">News</Link>
+          <Link to="/blog" className="hover:underline">Blog</Link> {/* Add Blog link */}
           <Link to="/contact" className="hover:underline">Contact</Link>
         </nav>
       </div>
