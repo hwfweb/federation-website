@@ -106,6 +106,18 @@ const startServer = async () => {
     res.json(testimonials);
   });
 
+  // Sample gallery images data
+  const galleryImages = [
+    { id: 1, url: 'https://via.placeholder.com/600x400', description: 'Image 1' },
+    { id: 2, url: 'https://via.placeholder.com/600x400', description: 'Image 2' },
+    { id: 3, url: 'https://via.placeholder.com/600x400', description: 'Image 3' },
+  ];
+
+  // Gallery route to get all gallery images
+  app.get('/api/gallery', (req, res) => {
+    res.json(galleryImages);
+  });
+
   // Start the server
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
