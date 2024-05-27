@@ -118,6 +118,18 @@ const startServer = async () => {
     res.json(galleryImages);
   });
 
+  // Sample FAQ data
+  const faqs = [
+    { id: 1, question: 'What is the mission of the federation?', answer: 'The mission of the federation is to provide quality education and support to all students.' },
+    { id: 2, question: 'How can I contact the federation?', answer: 'You can contact the federation via email at contact@federation.edu or call us at (123) 456-7890.' },
+    { id: 3, question: 'Where can I find the latest news?', answer: 'The latest news can be found on our News page on the website.' },
+  ];
+
+  // FAQ route to get all FAQs
+  app.get('/api/faq', (req, res) => {
+    res.json(faqs);
+  });
+
   // Start the server
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
