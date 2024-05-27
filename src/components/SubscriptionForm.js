@@ -40,6 +40,7 @@ const SubscriptionForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="email" // Added autocomplete attribute
         />
         <button
           type="submit"
