@@ -7,6 +7,7 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPosts, setFilteredPosts] = useState([]);
+  const [error, setError] = useState('');
 
   // Fetch blog posts from the backend API
   useEffect(() => {
@@ -21,6 +22,7 @@ const Blog = () => {
         setFilteredPosts(data);
       } catch (error) {
         console.error('Error fetching blog posts:', error);
+        setError('Failed to load blog posts. Please try again later.');
       }
     };
 
@@ -45,6 +47,7 @@ const Blog = () => {
         onChange={(e) => setSearchQuery(e.target.value)}
         className="w-full p-2 border mb-4"
       />
+      {error && <p className="mt-4 text-red-600">{error}</p>}
       {filteredPosts.length > 0 ? (
         <div className="space-y-4">
           {filteredPosts.map(post => (
@@ -56,7 +59,7 @@ const Blog = () => {
           ))}
         </div>
       ) : (
-        <p>No blog posts available</p>
+        !error && <p>No blog posts available</p>
       )}
     </div>
   );
